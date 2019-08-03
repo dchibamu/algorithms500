@@ -35,4 +35,14 @@ public class AppTest
         app.mergeTwoSortedArrays(X, Y);
         assertArrayEquals(exepectedResult, X);
     }
+
+    @Test
+    public void shouldSuccessfullySortZerosOnesAndTwos()
+    {
+        int[] Q = {0, 2, 1, 1, 2, 0, 0, 1, 1};
+        int[] expectedResult = {0, 0, 0, 1, 1, 1, 1, 2, 2};
+        App app = new App();
+        app.threeWayPartitionSorting(Q);
+        assertArrayEquals(expectedResult, Q);
+    }
 }

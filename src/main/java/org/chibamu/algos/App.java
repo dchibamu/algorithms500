@@ -16,23 +16,29 @@ public class App
     {
         //move elements of X to the beginning of the array
         int k = 0;
-        for (int i = 0; i < X.length; i++) {
-            if (X[i] != null) {
+        for (int i = 0; i < X.length; i++)
+        {
+            if (X[i] != null)
+            {
                 X[k++] = X[i];
             }
         }
         int m = k - 1;
         int n = Y.length - 1;
         k = X.length - 1;
-        while (m >= 0 && n >= 0) {
-            if (X[m] > Y[n]) {
+        while (m >= 0 && n >= 0)
+        {
+            if (X[m] > Y[n])
+            {
                 X[k--] = X[m--];
-            } else {
+            }
+            else {
                 X[k--] = Y[n--];
             }
         }
 
-        while (n >= 0) {
+        while (n >= 0)
+        {
             X[k--] = Y[n--];
         }
     }
@@ -71,5 +77,39 @@ public class App
         {
             X[k--] = Y[p--];
         }
+    }
+
+    /**
+     * Sort array of ones, zeros and twos
+     * @param X
+     */
+    public void threeWayPartitionSorting(int[] X)
+    {
+        int start = 0, end = X.length - 1, pointer = 0, pivot = 1;
+        while(pointer <= end)
+        {
+            if(X[pointer] < pivot)
+            {
+                swap(X, start, pointer);
+                ++start;
+                ++pointer;
+            }
+            else if(X[pointer] > pivot)
+            {
+                swap(X, pointer, end);
+                --end;
+            }
+            else
+            {
+                ++pointer;
+            }
+        }
+    }
+
+    private void swap(int[] X, int i, int j)
+    {
+        int temp = X[i];
+        X[i] = X[j];
+        X[j] = temp;
     }
 }
